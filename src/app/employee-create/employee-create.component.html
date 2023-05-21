@@ -1,0 +1,47 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #employeeCreateForm="ngForm">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>  
+        </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" [(ngModel)]="employee.email" 
+              class="form-control" 
+              id="email" 
+              name="email" 
+              placeholder="Enter employee email here"
+              required #email="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="employee.password" 
+              class="form-control" 
+              id="password" 
+              name="password" 
+              placeholder="Enter employee password"
+              required #password="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="repassword">Re-Enter the Password</label>
+            <input type="password" [(ngModel)]="rePassword" 
+              class="form-control" 
+              id="repassword" 
+              name="repassword" 
+              placeholder="Re-Enter your password here"
+              required #repassword="ngModel">
+          </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="employee.name" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter employee name"
+            required #name="ngModel">
+        </div>
+        <button type="submit" [disabled]="!employeeCreateForm.form.valid" 
+          class="btn btn-info">Add Employee</button>
+      </form>
+    </div>
+  </div>

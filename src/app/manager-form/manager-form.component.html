@@ -1,0 +1,17 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>  
+        </div>
+        <h6>Only a Manager is allowed to take the following actions:</h6>
+        <hr>
+        <div class="button-group">
+          <div  class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success" (click)="onCreateEmployee()">Create Employee</button> |
+            <button type="button"  class="btn btn-success" (click)="onCreateAccounttype()">Create Account Type</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #accountTypeCreateForm="ngForm">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>  
+        </div>
+          <div class="form-group">
+            <label for="account">Account Type</label>
+            <input type="text" [(ngModel)]="accounttype.accountTypeName" 
+              class="form-control" 
+              id="account" 
+              name="account" 
+              placeholder="Enter Account Type here"
+              required #account="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="balance">Minimum Balance</label>
+            <input type="number" [(ngModel)]="accounttype.minimumBalance" 
+              class="form-control" 
+              id="balance" 
+              name="balance" 
+              placeholder="Enter minimum required balance here"
+              required #balance="ngModel">
+          </div>
+        <button type="submit" [disabled]="!accountTypeCreateForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>

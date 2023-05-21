@@ -1,0 +1,54 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #createAccountForm="ngForm">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>  
+        </div>
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="account.name" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter customer's name here"
+            required #name="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input type="date" [(ngModel)]="account.dateOfBirth" 
+            class="form-control" 
+            id="dateOfBirth" 
+            name="dateOfBirth" 
+            placeholder="Enter customer's Date of Birth here"
+            required #dateOfBirth="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="number" [(ngModel)]="account.mobileNumber"
+              class="form-control" 
+              id="mobileNumber" 
+              name="mobileNumber" 
+              placeholder="Enter customer's mobile number here"
+              required #mobileNumber="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="accounttype">Account Type:  </label>
+            <select class="form-control" (change)="onSelectOptions($event)">
+              <option>Select Account Type</option>
+              <option *ngFor="let accType of accTypes" [value]="accType.accountTypeName">{{accType.accountTypeName}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="balance">Balance</label>
+            <input type="number" [(ngModel)]="account.balance" 
+              class="form-control" 
+              id="balance" 
+              name="balance" 
+              placeholder="Enter balance here"
+              required #balance="ngModel">
+          </div>
+        <button type="submit" [disabled]="!createAccountForm.form.valid" 
+          class="btn btn-info">Add Customer</button>
+      </form>
+    </div>
+  </div>
